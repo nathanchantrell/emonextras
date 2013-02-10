@@ -1,0 +1,33 @@
+Emonextras
+----------
+Some simple hacks I use to add features on to emoncms (http://openenergymonitor.org/emon/node/90)
+
+
+Air Quality Egg updater - aqe.php
+---------------------------------
+Runs via cron and scrapes NO2 and CO data from airqualityegg.com and posts to emoncms.
+
+
+Low Battery Voltage Checker - battcheck.php
+-------------------------------------------
+I run this via cron every 24 hours, it checks the emoncms database for battery voltages (inputs ending in _v in my setup) 
+and sends an email with a list of any that are below a set limit.
+
+
+Feed Summary Table - summary.php
+--------------------------------
+I use this to include a summary table of power, kwh, temperatures and humidity in a dashboard.
+To include it in the dashboard I manually edit the emoncms database to include an extra iframe in the relevant dashboard
+layout or it can just be used as a standalone script.
+
+
+Tweet kWh - tweet-kwh.php
+-------------------------
+This runs via cron to get the power and gas kWh value every 24 hours and uses ttytter (http://www.floodgap.com/software/ttytter/)
+to send a tweet with the days usage.
+
+
+Tweet if temperature below 0 - tweet-cold.php
+---------------------------------------------
+Runs via cron and checks the feed for external temperature and uses ttytter to send a tweet if it drops below 0
+Includes a dirty hack with a status file so that it only sends again once the temperature has risen above 0 again.
