@@ -8,6 +8,12 @@ Air Quality Egg updater - aqe.php
 Runs via cron and scrapes NO2 and CO data from airqualityegg.com and posts to emoncms.
 
 
+CSV output - csv.php
+--------------------
+I use this with cosm.com so that cosm can pull data from emoncms.
+Just give cosm the url to pull from eg. http://yourserver/csv.php
+
+
 Low Battery Voltage Checker - battcheck.php
 -------------------------------------------
 I run this via cron every 24 hours, it checks the emoncms database for battery voltages (inputs ending in _v in my setup) 
