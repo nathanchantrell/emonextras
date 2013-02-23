@@ -2,6 +2,10 @@ Emonextras
 ----------
 Some simple hacks I use to add features on to emoncms (http://openenergymonitor.org/emon/node/90)
 
+Wunderground.com uploader - wunderground.php
+--------------------------------------------
+Uploads current temperature, humidity, pressure and dewpoint from emoncms database to wunderground.com
+
 
 Air Quality Egg updater - aqe.php
 ---------------------------------
