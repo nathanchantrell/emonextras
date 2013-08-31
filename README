@@ -41,3 +41,9 @@ Tweet if temperature below 0 - tweet-cold.php
 ---------------------------------------------
 Runs via cron and checks the feed for external temperature and uses ttytter to send a tweet if it drops below 0
 Includes a dirty hack with a status file so that it only sends again once the temperature has risen above 0 again.
+
+
+Show feed data on Ciseco Pi-Lite LED matrix for Raspberry Pi - PiLiteEmoncms.py
+-------------------------------------------------------------------------------
+Pulls JSON feed data from emoncms and displays on the Pi-Lite (http://shop.ciseco.co.uk/raspberry-pi/)
+Requires PiLiteLib from https://github.com/CisecoPlc/PiLite
