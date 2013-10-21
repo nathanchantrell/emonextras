@@ -11,6 +11,9 @@
 // status file so we can tell if we have already tweeted
  $statusFile = "/home/username/.tweet-cold";
 
+// clean the output from emoncms
+$str = str_replace("\"","",$str);
+
 // temperature less than 0 and tweet not already sent
  if (($str < 0) && !file_exists($statusFile)) {
 
