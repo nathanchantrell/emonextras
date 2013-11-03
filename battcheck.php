@@ -1,6 +1,6 @@
 <?php
 // Emonextras - Low Battery Voltage Checker
-// Check emoncms database for battery voltages (inputs ending in _v) & sends an email with a list of any that are below $lowbattery
+// Check emoncms database for battery voltages (inputs named v in my setup) & sends an email with a list of any that are below $lowbattery
 // Run via cron with (for example): 0 0 * * * php /path/to/battcheck.php >/dev/null 2>&1
 // By Nathan Chantrell http://nathan.chantrell.net
 
@@ -13,10 +13,10 @@
   mysql_select_db("DATABASE") or die(mysql_error());
 
 // Check for low voltages
-  $result =  mysql_query("SELECT * FROM input WHERE name LIKE '%_v' ORDER BY name");
+  $result =  mysql_query("SELECT * FROM input WHERE name LIKE 'v' ORDER BY name");
   while($row = mysql_fetch_array( $result )) {
     if ($row['value'] < $lowbattery) {
-     $message.= str_replace("_v", "", $row['name'])." battery voltage is ".number_format(($row['value']/1000), 2, '.', ' ')."V\n";
+     $message.= "Node ".$row['nodeid']." ".$row['description']." battery voltage is ".number_format(($row['value']/1000), 2, '.', ' ')."V\n";
     }
   } 
 
